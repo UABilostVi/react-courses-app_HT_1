@@ -34,7 +34,10 @@ const Courses = () => {
 			<div className='courses-list'>
 				{coursesList
 					.filter((course) => {
-						return course.title.toLocaleLowerCase().includes(searchText);
+						return (
+							course.title.toLocaleLowerCase().includes(searchText) ||
+							course.id.toLocaleLowerCase().includes(searchText)
+						);
 					})
 					.map((course) => {
 						return (
