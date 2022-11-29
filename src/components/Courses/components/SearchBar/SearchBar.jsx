@@ -10,15 +10,10 @@ const SearchBar = (props) => {
 		marginLeft: '15px',
 	};
 
-	let inputStyle = {
-		padding: '5px',
-	};
-
 	return (
-		<form className='search-wapper' onSubmit={props.handleSubmit}>
+		<form className='search-wrapper' onSubmit={props.handleSubmit}>
 			<Input
 				onChange={props.handleChange}
-				style={inputStyle}
 				type='text'
 				id='search'
 				placeholder='Enter course name...'

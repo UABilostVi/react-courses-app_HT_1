@@ -1,54 +1,44 @@
 import React, { useState } from 'react';
 
-import './courses.css';
-
-import { CourseCard } from './components/CourseCard';
+import { CoursesList } from './components/CoursesList';
 import { SearchBar } from './components/SearchBar';
 import { Button } from '../../common/Button';
-
 import {
 	mockedCoursesList as coursesList,
 	mockedAuthorsList as authorsList,
 } from '../../constants';
 
-const Courses = () => {
-	let [searchText, setSearch] = useState('');
+import './courses.css';
+
+const Courses = (props) => {
+	let [searchText, setSearchText] = useState('');
+	// let [newCourseList, setNewCourseList] = useState(coursesList);
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		setSearch(e.target.elements.search.value.toLowerCase());
+		setSearchText(e.target.elements.search.value.toLowerCase());
 	}
 
 	function handleChange(e) {
 		if (e.target.value === '') {
-			setSearch(e.target.value);
+			setSearchText(e.target.value);
 		}
 	}
+
+	let filteredList = coursesList.filter((course) => {
+		return (
+			course.title.toLocaleLowerCase().includes(searchText) ||
+			course.id.toLocaleLowerCase().includes(searchText)
+		);
+	});
 
 	return (
 		<div className='container'>
 			<div className='courses-nav'>
 				<SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />
-				<Button buttonText='Add new course' />
+				<Button buttonText='Add new course' onClick={props.handleAddCourse} />
 			</div>
-			<div className='courses-list'>
-				{coursesList
-					.filter((course) => {
-						return (
-							course.title.toLocaleLowerCase().includes(searchText) ||
-							course.id.toLocaleLowerCase().includes(searchText)
-						);
-					})
-					.map((course) => {
-						return (
-							<CourseCard
-								key={course.id}
-								course={course}
-								authorsList={authorsList}
-							/>
-						);
-					})}
-			</div>
+			<CoursesList coursesList={filteredList} authorsList={authorsList} />
 		</div>
 	);
 };

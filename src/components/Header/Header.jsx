@@ -1,5 +1,8 @@
+import React from 'react';
+
 import { Button } from '../../common/Button';
 import { Logo } from './components/Logo';
+
 import './header.css';
 
 const Header = () => {

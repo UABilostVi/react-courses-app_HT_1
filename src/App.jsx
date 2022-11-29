@@ -1,14 +1,26 @@
-import './App.css';
+import React, { useState } from 'react';
+
 import { Courses } from './components/Courses';
 import { CreateCourse } from './components/CreateCourse';
 import { Header } from './components/Header';
 
+import './App.css';
+
 function App() {
+	let [isAddCourse, setAddCourse] = useState(false);
+
+	function renderAddCourse() {
+		setAddCourse(!isAddCourse);
+	}
+
 	return (
 		<div>
 			<Header />
-			<Courses />
-			<CreateCourse />
+			{isAddCourse ? (
+				<CreateCourse />
+			) : (
+				<Courses handleAddCourse={renderAddCourse} />
+			)}
 		</div>
 	);
 }

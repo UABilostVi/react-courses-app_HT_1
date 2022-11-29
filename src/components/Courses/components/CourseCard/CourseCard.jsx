@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Button } from '../../../../common/Button';
+import { pipeDuration } from '../../../../helpers/pipeDuration';
 
 import './courseCard.css';
 
@@ -18,14 +20,7 @@ const CourseCard = (props) => {
 			});
 	}
 
-	function getCourseDuration() {
-		return new Date(props.course.duration * 60 * 1000)
-			.toISOString()
-			.substr(11, 5);
-	}
-
 	let buttonStyle = {
-		display: 'block',
 		margin: '15px auto',
 	};
 
@@ -44,7 +39,7 @@ const CourseCard = (props) => {
 				</div>
 				<div>
 					<strong>Duration: </strong>
-					{getCourseDuration()} hours
+					{pipeDuration(props.course.duration)} hours
 				</div>
 				<div>
 					<strong>Created: </strong>

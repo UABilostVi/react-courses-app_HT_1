@@ -1,4 +1,5 @@
 .button {
+  display: block;
   background: transparent;
   width: 150px;
   height: 30px;

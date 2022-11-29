@@ -7,11 +7,14 @@ const Input = (props) => {
 		<label htmlFor={props.id}>
 			{props.labelText}
 			<input
+				name={props.name}
 				onChange={props.onChange}
 				style={props.style}
 				type={props.type}
 				id={props.id}
 				placeholder={props.placeholder}
+				required={props.required}
+				min={props.min}
 			/>
 		</label>
 	);

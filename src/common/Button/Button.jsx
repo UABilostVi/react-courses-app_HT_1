@@ -2,8 +2,17 @@ import React from 'react';
 
 import './button.css';
 
-export const Button = (props) => (
-	<button className='button' style={props.style} type={props.type}>
-		{props.buttonText}
-	</button>
-);
+const Button = (props) => {
+	return (
+		<button
+			className='button'
+			style={props.style}
+			type={props.type}
+			onClick={props.onClick}
+		>
+			{props.buttonText}
+		</button>
+	);
+};
+
+export default Button;
