@@ -14,10 +14,12 @@ const AddAuthor = (props) => {
 		<fieldset className='create-course__add-author'>
 			<legend className='create-course__details-title'>Add author</legend>
 			<Input
-				id='addAuthorInput'
+				value={props.name}
 				name='authorName'
 				labelText='Author name'
 				placeholder='Enter author name...'
+				onChange={props.onChangeHandler}
+				minLength={props.minLength}
 			/>
 			<Button
 				onClick={props.addAuthor}

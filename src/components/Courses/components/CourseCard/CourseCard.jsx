@@ -2,10 +2,17 @@ import React from 'react';
 
 import { Button } from '../../../../common/Button';
 import { pipeDuration } from '../../../../helpers/pipeDuration';
+import { transformDate } from '../../../../helpers/dateGenerator';
 
 import './courseCard.css';
 
 const CourseCard = (props) => {
+	let buttonStyle = {
+		margin: '15px auto',
+	};
+
+	let creationDate = transformDate(props.course.creationDate);
+
 	function getCourseAuthors() {
 		return props.course.authors
 			.map((authorId) => {
@@ -19,10 +26,6 @@ const CourseCard = (props) => {
 				} else return <span key={author.id}>{author.name}, </span>;
 			});
 	}
-
-	let buttonStyle = {
-		margin: '15px auto',
-	};
 
 	return (
 		<div className='course-card'>
@@ -43,7 +46,7 @@ const CourseCard = (props) => {
 				</div>
 				<div>
 					<strong>Created: </strong>
-					{props.course.creationDate}
+					{creationDate}
 				</div>
 				<Button style={buttonStyle} buttonText='Show course' />
 			</div>

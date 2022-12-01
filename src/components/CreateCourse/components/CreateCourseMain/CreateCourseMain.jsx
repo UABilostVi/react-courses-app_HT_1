@@ -14,7 +14,6 @@ const CreateCourseMain = () => {
 					labelText='Title'
 					type='text'
 					placeholder='Enter title...'
-					required={true}
 					minLength={2}
 				/>
 				<Button buttonText='Create course' type='submit' />
@@ -25,7 +24,6 @@ const CreateCourseMain = () => {
 					className='create-course__desc'
 					placeholder='Enter description'
 					rows='5'
-					required={true}
 					minLength={2}
 				></textarea>
 			</div>

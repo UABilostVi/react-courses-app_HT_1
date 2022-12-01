@@ -17,7 +17,7 @@ function App() {
 		<div>
 			<Header />
 			{isAddCourse ? (
-				<CreateCourse />
+				<CreateCourse handleAddCourse={renderAddCourse} />
 			) : (
 				<Courses handleAddCourse={renderAddCourse} />
 			)}

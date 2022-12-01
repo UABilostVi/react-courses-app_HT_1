@@ -3,6 +3,10 @@ import React from 'react';
 import { Button } from '../../../../../../common/Button';
 
 const AuthorListItem = (props) => {
+	function addHandler() {
+		let newCourseAuthor = { id: props.id, name: props.name };
+		return props.onClickHand(newCourseAuthor);
+	}
 	return (
 		<div
 			key={props.id}
@@ -14,7 +18,7 @@ const AuthorListItem = (props) => {
 			<Button
 				type='button'
 				buttonText={props.buttonText}
-				onClick={props.onClick}
+				onClick={addHandler}
 			/>
 		</div>
 	);

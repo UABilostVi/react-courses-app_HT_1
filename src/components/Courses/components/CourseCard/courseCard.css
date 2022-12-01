@@ -1,5 +1,6 @@
 .course-card {
   display: flex;
+  justify-content: space-between;
   gap: 30px;
   border: 1px solid black;
   margin-bottom: 15px;

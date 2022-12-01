@@ -23,7 +23,6 @@ const Duration = () => {
 				onChange={changeTime}
 				labelText='Duration'
 				placeholder='Enter duration in minutes...'
-				required={true}
 				min={0}
 			/>
 			<p className='create-course__duration-show'>
