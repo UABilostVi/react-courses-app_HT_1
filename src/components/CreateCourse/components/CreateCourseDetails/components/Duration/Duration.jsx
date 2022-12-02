@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { Input } from '../../../../../../common/Input';
 import { pipeDuration } from '../../../../../../helpers/pipeDuration';
+import { DUR_PLCHDR } from '../../../../../../constants';
 
 import './duration.css';
 
@@ -22,7 +23,7 @@ const Duration = () => {
 				name='duration'
 				onChange={changeTime}
 				labelText='Duration'
-				placeholder='Enter duration in minutes...'
+				placeholder={DUR_PLCHDR}
 				min={0}
 			/>
 			<p className='create-course__duration-show'>

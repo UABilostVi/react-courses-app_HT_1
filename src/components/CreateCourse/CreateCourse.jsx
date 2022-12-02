@@ -4,7 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { CreateCourseMain } from './components/CreateCourseMain';
 import { CreateCourseDetails } from './components/CreateCourseDetails';
 import { mockedCoursesList } from '../../constants';
-import { mockedAuthorsList as authors } from '../../constants';
+import {
+	mockedAuthorsList as authors,
+	BUTTON_ADD_AUTHOR_TEXT,
+	BUTTON_DEL_AUTHOR_TEXT,
+	FILL_ALERT,
+	CHARS_ALERT,
+} from '../../constants';
 import { AuthorListItem } from './components/CreateCourseDetails/components/AuthorListItem';
 import { getCreationDate } from '../../helpers/dateGenerator';
 
@@ -21,7 +27,7 @@ const CreateCourse = (props) => {
 
 	function addAuthor() {
 		if (name.length < 2) {
-			alert("Author's name Must be at least 2 characters");
+			alert(CHARS_ALERT);
 			return;
 		}
 		let newAuthor = { id: uuidv4(), name: name };
@@ -37,7 +43,7 @@ const CreateCourse = (props) => {
 			e.target.title.value === '' ||
 			e.target.duration.value === ''
 		) {
-			alert('Please, fill all fields');
+			alert(FILL_ALERT);
 			return;
 		}
 		props.handleAddCourse();
@@ -78,7 +84,7 @@ const CreateCourse = (props) => {
 				id={author.id}
 				key={author.id}
 				title={author.name}
-				buttonText='Add author'
+				buttonText={BUTTON_ADD_AUTHOR_TEXT}
 				name={author.name}
 				className='author-item'
 				onClickHand={addCourseAuthor}
@@ -96,7 +102,7 @@ const CreateCourse = (props) => {
 						id={author.id}
 						key={author.id}
 						title={author.name}
-						buttonText='Del author'
+						buttonText={BUTTON_DEL_AUTHOR_TEXT}
 						name={author.name}
 						className='author-item'
 						onClickHand={delCourseAuthor}

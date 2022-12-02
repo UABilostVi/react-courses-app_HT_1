@@ -6,13 +6,13 @@ import { Button } from '../../common/Button';
 import {
 	mockedCoursesList as coursesList,
 	mockedAuthorsList as authorsList,
+	BUTTON_ADD_COURSE_TEXT,
 } from '../../constants';
 
 import './courses.css';
 
 const Courses = (props) => {
 	let [searchText, setSearchText] = useState('');
-	// let [newCourseList, setNewCourseList] = useState(coursesList);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -36,7 +36,10 @@ const Courses = (props) => {
 		<div className='container'>
 			<div className='courses-nav'>
 				<SearchBar handleSubmit={handleSubmit} handleChange={handleChange} />
-				<Button buttonText='Add new course' onClick={props.handleAddCourse} />
+				<Button
+					buttonText={BUTTON_ADD_COURSE_TEXT}
+					onClick={props.handleAddCourse}
+				/>
 			</div>
 			<CoursesList coursesList={filteredList} authorsList={authorsList} />
 		</div>

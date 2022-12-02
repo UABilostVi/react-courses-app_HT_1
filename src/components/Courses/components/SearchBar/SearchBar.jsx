@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Input } from '../../../../common/Input';
 import { Button } from '../../../../common/Button';
+import { BUTTON_SEARCH_TEXT, SEARCH_PLCHDR } from '../../../../constants';
 
 import './searchBar.css';
 
@@ -16,9 +17,13 @@ const SearchBar = (props) => {
 				onChange={props.handleChange}
 				type='text'
 				id='search'
-				placeholder='Enter course name...'
+				placeholder={SEARCH_PLCHDR}
 			/>
-			<Button type='submit' style={buttonStyle} buttonText='Search' />
+			<Button
+				type='submit'
+				style={buttonStyle}
+				buttonText={BUTTON_SEARCH_TEXT}
+			/>
 		</form>
 	);
 };

@@ -2,6 +2,10 @@ import React from 'react';
 
 import { Input } from '../../../../../../common/Input';
 import { Button } from '../../../../../../common/Button';
+import {
+	BUTTON_CREATE_AUTHOR_TEXT,
+	AUTHOR_PLCHDR,
+} from '../../../../../../constants';
 
 import './addAuthor.css';
 
@@ -17,7 +21,7 @@ const AddAuthor = (props) => {
 				value={props.name}
 				name='authorName'
 				labelText='Author name'
-				placeholder='Enter author name...'
+				placeholder={AUTHOR_PLCHDR}
 				onChange={props.onChangeHandler}
 				minLength={props.minLength}
 			/>
@@ -25,7 +29,7 @@ const AddAuthor = (props) => {
 				onClick={props.addAuthor}
 				type='button'
 				style={buttonStyle}
-				buttonText='Create author'
+				buttonText={BUTTON_CREATE_AUTHOR_TEXT}
 			/>
 		</fieldset>
 	);

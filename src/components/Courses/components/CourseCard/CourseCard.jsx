@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from '../../../../common/Button';
 import { pipeDuration } from '../../../../helpers/pipeDuration';
 import { transformDate } from '../../../../helpers/dateGenerator';
+import { BUTTON_SHOW_COURSE_TEXT } from '../../../../constants';
 
 import './courseCard.css';
 
@@ -48,7 +49,7 @@ const CourseCard = (props) => {
 					<strong>Created: </strong>
 					{creationDate}
 				</div>
-				<Button style={buttonStyle} buttonText='Show course' />
+				<Button style={buttonStyle} buttonText={BUTTON_SHOW_COURSE_TEXT} />
 			</div>
 		</div>
 	);
